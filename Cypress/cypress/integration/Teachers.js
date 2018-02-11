@@ -23,3 +23,15 @@ describe('go to page teacher', function() {
     })
 
   })
+
+  describe('Filter by subject', function() {
+      it('Filter by subject', function() {
+          cy.visit('https://losestudiantes.co')
+          //cierra popup
+          cy.contains('Cerrar').click()
+          //Find teacher
+          cy.get('.buscador').click().find('input[role="combobox"]').type("Mario Linares Vasquez{enter}{enter}",{force:true})
+          cy.get('input[name="id:ISIS3510"]').check()
+      })
+
+    })
