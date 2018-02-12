@@ -39,4 +39,10 @@ export class TourOfHeroesPage {
     element(by.tagName('input')).sendKeys(newHeroName);
     element.all(by.tagName('button')).last().click();
   }
+
+  FindHeroes(hero: string) {
+    element(by.id('search-box')).sendKeys(hero);
+    return element.all(by.css('.search-result'));
+  }
+
 }

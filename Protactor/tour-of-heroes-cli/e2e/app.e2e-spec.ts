@@ -34,9 +34,8 @@ describe('Tour of heroes, heroes page', () => {
 
   it('2.4.1 should find a hero Zero', () => {
     page.navigateTo();
-    const heroFound = page.heroNameToFind('Zero');
-    expect(heroFound.count()).toBe(1);
-    expect(heroFound.first().getText()).toBe('Zero details!');
+    const heroFound = page.FindHeroes('D');
+    expect(heroFound.count()).toBe(3);
   });
 
   it('2.4.2 should delete fisrt hero', () => {
