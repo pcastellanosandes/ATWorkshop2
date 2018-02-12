@@ -22,6 +22,13 @@ describe('Tour of heroes Dashboard', () => {
     const heroDetail = page.goToHeroFromDashboard();
     expect(heroDetail.first().getText()).toBe('Mr. Nice details!');
   });
+
+  it('2.4.6 Go to hero from search control', () => {
+    page.navigateTo();
+    const heroFound = page.heroNameToFind('Bombasto');
+    expect(heroFound.count()).toBe(1);
+    expect(heroFound.first().getText()).toBe('Bombasto details!');
+  });
 });
 
 describe('Tour of heroes, heroes page', () => {
@@ -44,13 +51,6 @@ describe('Tour of heroes, heroes page', () => {
     expect(heroFound.count()).toBe(3);
   });
 
-  it('2.4.2 should delete fisrt hero', () => {
-    page.navigateToHeroes();
-    const expectedHeroes = page.getAllHeroes().count();
-    page.deleteHero();
-    expect(page.getAllHeroes().count()).toBe(expectedHeroes.then(n => n - 1));
-  });
-
   it('2.4.3 should edit hero Narco', () => {
     page.navigateTo();
     page.updateHeroName('Narco', ' Update');
@@ -64,5 +64,12 @@ describe('Tour of heroes, heroes page', () => {
     const heroFound = page.goToHeroFromHeroesPage();
     expect(heroFound.count()).toBe(1);
     expect(heroFound.first().getText()).toBe('Zero details!');
+  });
+
+  it('2.4.2 should delete fisrt hero', () => {
+    page.navigateToHeroes();
+    const expectedHeroes = page.getAllHeroes().count();
+    page.deleteHero();
+    expect(page.getAllHeroes().count()).toBe(expectedHeroes.then(n => n - 1));
   });
 });
