@@ -45,7 +45,7 @@ describe('Tour of heroes, heroes page, Find Heroe', () => {
   it('should find a hero Dynama', () => {
     const heroFound = page.heroNameToFind('Zero');
     expect(heroFound.count()).toBe(1);
-    //expect(heroFound.first().getText()).toBe('Zero details!');
+    expect(heroFound.first().getText()).toBe('Zero details!');
   });
 
 });
