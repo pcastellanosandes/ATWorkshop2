@@ -19,7 +19,7 @@ describe('Tour of heroes Dashboard', () => {
 
   it('2.4.4 Go to hero from dashboard', () => {
     page.navigateTo();
-    const heroDetail = page.goToHeroeFromDashboard();
+    const heroDetail = page.goToHeroFromDashboard();
     expect(heroDetail.first().getText()).toBe('Mr. Nice details!');
   });
 });
@@ -51,12 +51,18 @@ describe('Tour of heroes, heroes page', () => {
     expect(page.getAllHeroes().count()).toBe(expectedHeroes.then(n => n - 1));
   });
 
-  it('2.4.3 should edit hero Zero', () => {
+  it('2.4.3 should edit hero Narco', () => {
     page.navigateTo();
-    page.updateHeroName('Zero', ' Update');
-    const heroFound = page.heroNameToFind('Zero Update');
+    page.updateHeroName('Narco', ' Update');
+    const heroFound = page.heroNameToFind('Narco Update');
     expect(heroFound.count()).toBe(1);
-    expect(heroFound.first().getText()).toBe('Zero Update details!');
+    expect(heroFound.first().getText()).toBe('Narco Update details!');
+  });
 
+  it('2.4.5 navigate to Hero from heroes page', () => {
+    page.navigateToHeroes();
+    const heroFound = page.goToHeroFromHeroesPage();
+    expect(heroFound.count()).toBe(1);
+    expect(heroFound.first().getText()).toBe('Zero details!');
   });
 });

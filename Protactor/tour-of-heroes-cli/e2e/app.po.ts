@@ -45,8 +45,14 @@ export class TourOfHeroesPage {
     return element.all(by.css('.search-result'));
   }
 
-  goToHeroeFromDashboard(){
+  goToHeroFromDashboard(){
     element.all(by.css('.col-1-4')).first().click();
+    return element.all(by.tagName('h2'));
+  }
+
+  goToHeroFromHeroesPage(){
+    element(by.tagName('my-heroes')).all(by.tagName('li')).first().click();
+    element(by.buttonText('View Details')).click();
     return element.all(by.tagName('h2'));
   }
 }
