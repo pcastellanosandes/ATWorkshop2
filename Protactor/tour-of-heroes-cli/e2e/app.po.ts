@@ -32,4 +32,11 @@ export class TourOfHeroesPage {
   deleteHero(){
     element(by.tagName('my-heroes')).all(by.css('.delete')).first().click()
   }
+
+  updateHeroName(currentHeroName: string, newHeroName: string) {
+    element(by.id('search-box')).sendKeys(currentHeroName);
+    element(by.css('.search-result')).click();
+    element(by.tagName('input')).sendKeys(newHeroName);
+    element.all(by.tagName('button')).last().click();
+  }
 }

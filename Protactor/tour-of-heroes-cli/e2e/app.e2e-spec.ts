@@ -64,5 +64,21 @@ describe('Tour of heroes, heroes page, delete hero', () => {
     page.deleteHero();
     expect(page.getAllHeroes().count()).toBe(expectedHeroes.then(n => n - 1));
   });
+});
 
+describe('Tour of heroes, heroes page, edit Hero', () => {
+  let page: TourOfHeroesPage;
+
+  beforeEach(() => {
+    page = new TourOfHeroesPage;
+    page.navigateTo();
+  });
+
+  it('should edit hero Zero', () => {
+    page.updateHeroName('Zero', ' Update');
+    const heroFound = page.heroNameToFind('Zero Update');
+    expect(heroFound.count()).toBe(1);
+    expect(heroFound.first().getText()).toBe('Zero Update details!');
+
+  });
 });
