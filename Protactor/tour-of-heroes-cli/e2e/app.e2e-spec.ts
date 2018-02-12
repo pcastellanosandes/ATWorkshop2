@@ -16,6 +16,12 @@ describe('Tour of heroes Dashboard', () => {
     page.navigateToHeroes();
     expect(page.getAllHeroes().count()).toBe(11);
   });
+
+  it('2.4.4 Go to hero from dashboard', () => {
+    page.navigateTo();
+    const heroDetail = page.goToHeroeFromDashboard();
+    expect(heroDetail.first().getText()).toBe('Mr. Nice details!');
+  });
 });
 
 describe('Tour of heroes, heroes page', () => {
