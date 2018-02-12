@@ -23,58 +23,31 @@ describe('Tour of heroes, heroes page', () => {
 
   beforeEach(() => {
     page = new TourOfHeroesPage;
-    page.navigateToHeroes();
   });
 
   it('should add a new hero', () => {
+    page.navigateToHeroes();
     const currentHeroes = page.getAllHeroes().count();
     page.enterNewHeroInInput('My new Hero');
     expect(page.getAllHeroes().count()).toBe(currentHeroes.then(n => n + 1));
   });
 
-});
-
-
-describe('Tour of heroes, heroes page, Find Hero', () => {
-  let page: TourOfHeroesPage;
-
-  beforeEach(() => {
-    page = new TourOfHeroesPage;
+  it('2.4.1 should find a hero Zero', () => {
     page.navigateTo();
-  });
-
-  it('should find a hero Zero', () => {
     const heroFound = page.heroNameToFind('Zero');
     expect(heroFound.count()).toBe(1);
     expect(heroFound.first().getText()).toBe('Zero details!');
   });
-});
 
-
-describe('Tour of heroes, heroes page, delete hero', () => {
-  let page: TourOfHeroesPage;
-
-  beforeEach(() => {
-    page = new TourOfHeroesPage;
+  it('2.4.2 should delete fisrt hero', () => {
     page.navigateToHeroes();
-  });
-
-  it('should delete fisrt hero', () => {
     const expectedHeroes = page.getAllHeroes().count();
     page.deleteHero();
     expect(page.getAllHeroes().count()).toBe(expectedHeroes.then(n => n - 1));
   });
-});
 
-describe('Tour of heroes, heroes page, edit Hero', () => {
-  let page: TourOfHeroesPage;
-
-  beforeEach(() => {
-    page = new TourOfHeroesPage;
+  it('2.4.3 should edit hero Zero', () => {
     page.navigateTo();
-  });
-
-  it('should edit hero Zero', () => {
     page.updateHeroName('Zero', ' Update');
     const heroFound = page.heroNameToFind('Zero Update');
     expect(heroFound.count()).toBe(1);
