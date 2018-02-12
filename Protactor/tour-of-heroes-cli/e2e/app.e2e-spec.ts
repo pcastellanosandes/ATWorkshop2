@@ -34,7 +34,8 @@ describe('Tour of heroes, heroes page', () => {
 
 });
 
-describe('Tour of heroes, heroes page, Find Heroe', () => {
+
+describe('Tour of heroes, heroes page, Find Hero', () => {
   let page: TourOfHeroesPage;
 
   beforeEach(() => {
@@ -42,10 +43,26 @@ describe('Tour of heroes, heroes page, Find Heroe', () => {
     page.navigateTo();
   });
 
-  it('should find a hero Dynama', () => {
+  it('should find a hero Zero', () => {
     const heroFound = page.heroNameToFind('Zero');
     expect(heroFound.count()).toBe(1);
     expect(heroFound.first().getText()).toBe('Zero details!');
+  });
+});
+
+
+describe('Tour of heroes, heroes page, delete hero', () => {
+  let page: TourOfHeroesPage;
+
+  beforeEach(() => {
+    page = new TourOfHeroesPage;
+    page.navigateToHeroes();
+  });
+
+  it('should delete fisrt hero', () => {
+    const expectedHeroes = page.getAllHeroes().count();
+    page.deleteHero();
+    expect(page.getAllHeroes().count()).toBe(expectedHeroes.then(n => n - 1));
   });
 
 });

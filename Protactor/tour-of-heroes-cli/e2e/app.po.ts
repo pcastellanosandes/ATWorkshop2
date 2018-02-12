@@ -29,4 +29,7 @@ export class TourOfHeroesPage {
     return element.all(by.tagName('h2'));
   }
 
+  deleteHero(){
+    element(by.tagName('my-heroes')).all(by.css('.delete')).first().click()
+  }
 }
