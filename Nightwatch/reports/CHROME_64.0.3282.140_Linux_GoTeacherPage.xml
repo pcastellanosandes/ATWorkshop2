@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="1">
+
+  <testsuite name="GoTeacherPage"
+    errors="0" failures="0" hostname="" id="" package="GoTeacherPage" skipped="0"
+    tests="1" time="10.85" timestamp="Sun, 18 Feb 2018 20:05:24 GMT">
+  
+    <testcase name="Go to teacher page" classname="GoTeacherPage" time="10.85" assertions="5">
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+
+  
+
+  
+  </testsuite>
+</testsuites>

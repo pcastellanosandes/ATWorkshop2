@@ -9,10 +9,10 @@ module.exports = {
       .waitForElementVisible('.Select-option', 10000)
       .assert.containsText('.Select-option', 'Mario Linares Vasquez - Ingeniería De Sistemas')
       .click('.Select-option')
-      .waitForElementVisible('.materias', 10000)
+      .waitForElementVisible('.materias', 20000)
       .click('.materias input[name="id:ISIS3510"]')
-      .waitForElementVisible('.botonMas', 10000)
-      .assert.containsText('.botonMas','Mostrar las otras 3 calificaciones')
+      .waitForElementVisible('#profesor_cantidad', 10000)
+      .assert.containsText('#profesor_cantidad',6)
       .end();
   }
 };
