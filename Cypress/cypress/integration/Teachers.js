@@ -5,8 +5,19 @@ describe('find teacher', function() {
         cy.contains('Cerrar').click()
         //Find teacher
 
-        cy.get('.buscador').click().find('input[role="combobox"]').type("Jose Barreto{enter}",{force:true})
+        //cy.get('.buscador').find('input[role="combobox"]').type("Jose Barreto", {force:true})
+        cy.get('.buscador').find('input[role="combobox"]').type("Jose Manuel Barreto", {force:true, timeout:10000})
+        cy.wait(10000)
         cy.contains('Jose Manuel Barreto - Derecho')
+
+
+
+        // .setValue('.buscador input[role="combobox"]','Mario Linares Vasquez')
+        // .waitForElementVisible('.Select-option', 10000)
+        // .assert.containsText('.Select-option', 'Mario Linares Vasquez - Ingeniería De Sistemas')
+        // .click('.Select-option')
+        // .waitForElementVisible('.nombreProfesor', 10000)
+        // .assert.containsText('.nombreProfesor', 'Mario Linares Vasquez')
 
     })
 })
